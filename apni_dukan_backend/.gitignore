@@ -1,7 +1,11 @@
-# Node modules
+# ====================
+# Node.js dependencies
+# ====================
 node_modules/
 
+# ====================
 # Logs
+# ====================
 logs
 *.log
 npm-debug.log*
@@ -9,25 +13,29 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Build outputs
+# ====================
+# Build & coverage
+# ====================
 dist/
 build/
+coverage/
 
-# Dependency directories
-jspm_packages/
-
-# dotenv environment files
+# ====================
+# Environment files
+# ====================
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
 
-# OS-specific files
+# ====================
+# System files
+# ====================
 .DS_Store
 Thumbs.db
 
-# IDEs and editors
+# ====================
+# IDE / Editor folders
+# ====================
 .vscode/
 .idea/
 *.suo
@@ -35,20 +43,31 @@ Thumbs.db
 *.njsproj
 *.sln
 
+# ====================
 # Optional npm cache
+# ====================
 .npm/
 
-# Coverage reports
-coverage/
-
+# ====================
 # TypeScript
+# ====================
 *.tsbuildinfo
 
-# Compiled JS from TS
-*.js
-*.jsx
-*.map
+# ====================
+# Parcel / React caches
+# ====================
+.cache/
+.parcel-cache/
 
-# React
-*.cache/
-*.parcel-cache/
+# ====================
+# Ignore compiled code in dist/build, NOT in src
+# ====================
+dist/**/*.js
+build/**/*.js
+
+# ====================
+# DON'T ignore your actual source code!
+# ====================
+!src/
+!mongo_model/
+!mongo_model/**/*.js
