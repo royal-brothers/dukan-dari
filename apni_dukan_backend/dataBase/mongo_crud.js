@@ -31,7 +31,7 @@ const deleteQuery = async (query_param) => {
     switch (queryType) {
       case "deleteMany":
         group = await mongoose.model(modelName);
-        delete_data = await group.deleteMany(filter);
+        delete_data = await group.deleteMany(id);
         break;
   
       default:
