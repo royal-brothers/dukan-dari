@@ -116,4 +116,4 @@ const find_distinct = async (query_param) => {
   return await mongoose.model(modelName).distinct(distinct_key, where);
 };
 
-export { insertQuery, deleteQuery, distinctQury , find_all, find_one, updateQuery, distinctQury, find_distinct, count_records};
+export { insertQuery, deleteQuery, distinctQury , find_all, find_one, updateQuery, find_distinct, count_records};
