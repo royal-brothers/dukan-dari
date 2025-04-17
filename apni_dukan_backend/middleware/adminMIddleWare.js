@@ -34,4 +34,4 @@ const verifyToken  = (req, res, next)=>{
     }
 }
 
-export {genToken , genToken};
+export {genToken , verifyToken};
