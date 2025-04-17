@@ -44,4 +44,20 @@ const adminRegistration = async (req, res) => {
   }
 };
 
+const loginUser = async (req,res)=> {
+  try{
+
+  }catch(err){
+    console.error("Admin login error", err);
+    res
+    .status(500)
+    .json({
+      message:"some error in login Admin"
+    })
+
+    
+  }
+
+}
+
 export default adminRegistration;

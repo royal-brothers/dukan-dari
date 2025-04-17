@@ -104,16 +104,20 @@ const updateQuery = async(query_param)=>{
 
 }
 
+
+//test
+
 const count_records = async(query_paraam)=>{
   const {modelName , condition={}}= query_paraam;
   const groupModel = mongoose.model(modelName);
-  return await groupModel.countDocuments(condition);
+  return await groupModel.countDocuments(condition);}
 
+export {
+    insertQuery,
+    deleteQuery,
+    count_records,
+    updateQuery,
+    find_one,
+    find_all,
+    distinctQury
 }
-
-const find_distinct = async (query_param) => {
-  const { modelName, distinct_key, where = {} } = query_param;
-  return await mongoose.model(modelName).distinct(distinct_key, where);
-};
-
-export { insertQuery, deleteQuery, distinctQury , find_all, find_one, updateQuery, find_distinct, count_records};
