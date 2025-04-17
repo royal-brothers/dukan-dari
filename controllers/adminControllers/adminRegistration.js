@@ -1,6 +1,7 @@
 import AdminAuth from "../../mongo_model/admin_model/adminAuth.model.js";
 import sendOtpToAdmin from "../../service/nodeMailerService.js";
-import { count_records, insertQuery } from "../../dataBase/mongo_crud.js";
+import { count_records, insertQuery, } from "../../dataBase/mongo_crud.js";
+import bcrypt from "bcryptjs";
 
 async function existingAdmin(email) {
   const isExist = await count_records({
@@ -13,6 +14,16 @@ async function existingAdmin(email) {
   return isExist;
 }
 
+async function findAdmin(email) {
+  
+  
+}
+
+const hashPassword = async (password) =>{
+  const hashedPassword = await bcrypt.hash(password,10);
+  return hashedPassword
+}
+
 const adminRegistration = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -22,9 +33,13 @@ const adminRegistration = async (req, res) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
     await sendOtpToAdmin(email, otp);
+    // hash the password 
+      
+     const hashpassword = hashPassword(password)
+
     const adminData = {
       email,
-      password,
+      hashpassword,
       otp,
     };
     const insertData = await insertQuery({
@@ -44,20 +59,10 @@ const adminRegistration = async (req, res) => {
   }
 };
 
-const loginUser = async (req,res)=> {
-  try{
 
-  }catch(err){
-    console.error("Admin login error", err);
-    res
-    .status(500)
-    .json({
-      message:"some error in login Admin"
-    })
 
-    
-  }
+export {
+  adminRegistration,
+  existingAdmin,
 
-}
-
-export default adminRegistration;
+} 
