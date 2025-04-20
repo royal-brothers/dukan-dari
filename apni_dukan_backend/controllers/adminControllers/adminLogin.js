@@ -8,6 +8,7 @@
 
     try{
         const adminExists = await existingAdmin(email);
+        console.log("admin exist or not jusr see it ")
     if (!adminExists) {
       return res.status(404).json({ message: "Admin not found" });
     }
